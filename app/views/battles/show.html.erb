@@ -1,0 +1,54 @@
+<div class="mx-auto  w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <%= render @battle %>
+    <div>
+      <div class="container flex justify-center mx-auto">
+        <div class="flex flex-col">
+          <div class="w-full">
+            <div class="border-b border-gray-200 shadow">
+              <div>
+                <h1 class="text-3xl">Battle Logs</h1>
+              </div>
+              <br>
+              <table class="divide-y divide-gray-300 ">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-2 text-gray-500">
+                      Step
+                    </th>
+                    <th class="px-6 py-2  text-gray-500">
+                      Log
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-300">
+                  <% @battle_logs.each_with_index do |battle, index| %>
+                    <tr class="whitespace-nowrap">
+                      <td class="px-6 py-4  text-gray-500">
+                        <%= (index + 1) %>
+                      </td>
+                      <td class="px-6 py-4">
+                        <div class=" text-gray-900">
+                          <%= battle.log %>
+                        </div>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <%= link_to 'Edit this battle', edit_battle_path(@battle), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to 'Destroy this battle', battle_path(@battle), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+    <%= link_to 'Back to battles', battles_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>

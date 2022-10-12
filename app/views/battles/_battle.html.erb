@@ -1,0 +1,27 @@
+<div id="<%= dom_id battle %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Initiator:</strong>
+    <%= battle.initiator.name %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Opponent:</strong>
+    <%= battle.opponent.name %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <%= battle.status %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Winner:</strong>
+    <% if battle.winner != nil %>
+      <%= battle.winner.name %>
+    <% else %>
+      NA
+    <% end %>
+  </p>
+  <% if action_name != "show" %>
+    <%= link_to "Show this battle", battle, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this battle', edit_battle_path(battle), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

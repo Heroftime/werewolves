@@ -1,0 +1,43 @@
+<h2>Sign up</h2>
+<br>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="my-2">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div class="my-2">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+  <div class="my-2">
+    <%= f.label :amount_of_gold %><br />
+    <%= f.number_field :amount_of_gold %>
+  </div>
+  <div class="my-2">
+    <%= f.label :attack_value %><br />
+    <%= f.number_field :attack_value %>
+  </div>
+  <div class="my-2">
+    <%= f.label :hit_points %><br />
+    <%= f.number_field :hit_points %>
+  </div>
+  <div class="my-2">
+    <%= f.label :luck_value %><br />
+    <%= f.number_field :luck_value %>
+  </div>
+  <div class="my-2">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+  <div class="my-2">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Sign up", class: "bg-blue-700 p-2 rounded-md text-white hover:cursor-pointer" %>
+  </div>
+<% end %>
